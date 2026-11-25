@@ -1,3 +1,5 @@
+import "./FormField.css";
+
 // Wraps any input with a label, optional required star and error message.
 // "children" is whatever you put between <FormField> ... </FormField>.
 export default function FormField({ id, label, required, error, children }) {

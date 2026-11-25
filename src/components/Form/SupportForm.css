@@ -1,0 +1,13 @@
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 62px;
+  margin-top: 22px;
+}
+.row .field { margin-top: 0; }
+
+/* Stack them on small screens */
+@media (max-width: 700px) {
+  .row { grid-template-columns: 1fr; gap: 18px; }
+}

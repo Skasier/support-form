@@ -1,0 +1,29 @@
+
+.field { display: flex; flex-direction: column; margin-top: 18px; }
+.field label { margin-bottom: 8px; font-size: 15px; }
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--input);
+  color: var(--text);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font: inherit;
+  font-size: 14px;
+}
+.field input,
+.field select { height: 50px; }
+.field textarea { resize: vertical; }
+
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* Red border when validation fails */
+.field [aria-invalid="true"] { border-color: var(--red); }

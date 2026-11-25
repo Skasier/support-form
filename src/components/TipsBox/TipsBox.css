@@ -1,0 +1,9 @@
+
+.tips {
+  margin-top: 48px;
+  padding: 24px 20px;
+  background: var(--input);
+  border-radius: 4px;
+}
+.tips h2 { margin: 0 0 8px; font-size: 16px; }
+.tips p { margin: 0 0 6px; font-size: 15px; }

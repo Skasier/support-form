@@ -1,7 +1,7 @@
 import { useState } from "react";
-import FormField from "./FormField";
-import FileDropzone from "./FileDropzone";
-import TipsBox from "./TipsBox";
+import FormField from "../FormFild/FormField";
+import FileDropzone from "../FileDrop/FileDropzone";
+import TipsBox from "../TipsBox/TipsBox";
 
 const CATEGORIES = ["Hardware", "Software", "Network", "Payments", "Other"];
 const emptyForm = { title: "", category: "", description: "" };

@@ -1,4 +1,5 @@
-// Props: tabs (array of labels), activeIndex, onChange(index), ticketCount
+import "./TabBar.css";
+
 export default function TabBar({ tabs, activeIndex, onChange, ticketCount }) {
   return (
     <nav className="tabs" aria-label="Support sections">

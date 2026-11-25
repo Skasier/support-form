@@ -1,3 +1,5 @@
+/* SHARED STYLES: used by the whole app.
+   Colours are CSS variables, so you change a colour once here. */
 :root {
   --bg: #1b1b24;
   --panel: #282a3e;
@@ -18,108 +20,31 @@ body {
   font-family: "Outfit", "Segoe UI", system-ui, sans-serif;
 }
 
-.support-app { max-width: 1015px; margin: 0 auto; padding: 8px; }
-
-/* Tabs */
-.tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-.tab {
-  position: relative;
-  padding: 10px 22px;
-  background: var(--panel);
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  font: inherit;
-  font-size: 15px;
-  cursor: pointer;
-}
-.tab--active { background: var(--blue); border-color: var(--blue); }
-.badge {
-  display: inline-grid;
-  place-items: center;
-  min-width: 20px;
-  height: 20px;
-  margin-left: 10px;
-  padding: 0 6px;
-  border-radius: 10px;
-  background: var(--red);
-  font-size: 12px;
-  font-weight: 600;
-}
-
-/* Panel */
-.panel { background: var(--panel); border-radius: 4px; padding: 24px; }
-.panel h1 { margin: 0 0 6px; font-size: 22px; }
-.hint { margin: 4px 0 0; font-size: 12px; color: var(--muted); }
-.required { color: var(--red); }
-
-/* Fields */
-.row { display: grid; grid-template-columns: 1fr 1fr; gap: 62px; margin-top: 22px; }
-.field { display: flex; flex-direction: column; margin-top: 18px; }
-.row .field { margin-top: 0; }
-label { margin-bottom: 8px; font-size: 15px; }
-
-input, select, textarea {
-  width: 100%;
-  padding: 14px 16px;
-  background: var(--input);
-  color: var(--text);
-  border: 1px solid transparent;
-  border-radius: 4px;
-  font: inherit;
-  font-size: 14px;
-}
-textarea { resize: vertical; }
-input:focus-visible, select:focus-visible, textarea:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--blue);
   outline-offset: 2px;
 }
-[aria-invalid="true"] { border-color: var(--red); }
 
+/* Page wrapper */
+.support-app {
+  max-width: 1015px;
+  margin: 0 auto;
+  padding: 8px;
+  text-align: left;
+}
+
+/* The big dark box that holds each screen */
+.panel { background: var(--panel); border-radius: 4px; padding: 24px; }
+.panel h1 { margin: 0 0 6px; font-size: 22px; }
+
+/* Small grey text and red required star */
+.hint { margin: 4px 0 0; font-size: 12px; color: var(--muted); }
+.required { color: var(--red); }
+
+/* Error messages (used by FormField and FileDropzone) */
 .error { margin: 6px 0 0; font-size: 13px; color: var(--red); }
-.success {
-  margin: 14px 0 0;
-  padding: 10px 14px;
-  background: #1f3a2c;
-  border-radius: 4px;
-  font-size: 14px;
-}
 
-/* Drop zone */
-.dropzone {
-  display: grid;
-  place-items: center;
-  height: 76px;
-  border: 1.5px dashed var(--muted);
-  border-radius: 4px;
-  color: var(--muted);
-  font-size: 14px;
-}
-.dropzone--active { border-color: var(--blue); background: rgba(59, 123, 255, 0.08); }
-.link {
-  background: none;
-  border: 0;
-  padding: 0;
-  color: inherit;
-  font: inherit;
-  text-decoration: underline;
-  cursor: pointer;
-}
-.file-list { list-style: none; margin: 10px 0 0; padding: 0; font-size: 14px; }
-.file-list li { display: flex; justify-content: space-between; padding: 6px 0; }
-
-/* Tips box */
-.tips {
-  margin-top: 48px;
-  padding: 24px 20px;
-  background: var(--input);
-  border-radius: 4px;
-}
-.tips h2 { margin: 0 0 8px; font-size: 16px; }
-.tips p { margin: 0 0 6px; font-size: 15px; }
-
-/* Buttons */
+/* Buttons (used by SupportForm and TicketConfirmation) */
 .actions { display: flex; justify-content: space-between; margin-top: 64px; }
 .btn {
   padding: 14px 34px;
@@ -133,7 +58,3 @@ button:focus-visible {
 .btn--danger { background: var(--red); }
 .btn--primary { background: var(--blue); }
 .btn:hover { filter: brightness(1.1); }
-
-@media (max-width: 700px) {
-  .row { grid-template-columns: 1fr; gap: 18px; }
-}
