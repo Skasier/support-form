@@ -1,0 +1,5 @@
+import "./StatusPill.css";
+
+export default function StatusPill({ status }) {
+  return <span className={`status-pill status-pill--${status}`}>{status}</span>;
+}
