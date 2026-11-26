@@ -1,16 +1,18 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import FormField from "../FormFild/FormField";
 import FileDropzone from "../FileDrop/FileDropzone";
 import TipsBox from "../TipsBox/TipsBox";
+import "./SupportForm.css";
 
 const CATEGORIES = ["Hardware", "Software", "Network", "Payments", "Other"];
 const emptyForm = { title: "", category: "", description: "" };
-
+// Form for submitting a support request
 export default function SupportForm() {
+  const navigate = useNavigate();
   const [form, setForm] = useState(emptyForm);
   const [files, setFiles] = useState([]);
   const [errors, setErrors] = useState({});
-  const [submitted, setSubmitted] = useState(false);
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -32,16 +34,23 @@ export default function SupportForm() {
     setErrors(next);
     if (Object.keys(next).length > 0) return;
 
-    // Replace with a real fetch("/api/tickets", ...) call
+    // where the real fetch would go
     console.log("Ticket submitted:", form, files);
-    setSubmitted(true);
+    const ticket = {
+      id: 1000 + Math.floor(Math.random() * 9000),
+      subject: form.title,
+      category: form.category,
+      submittedBy: "gooober · alex@goofygoober.co.uk",
+      status: "In Progress",
+    };
+
+    navigate("/submitted", { state: { ticket } });
   }
 
   function handleClear() {
     setForm(emptyForm);
     setFiles([]);
     setErrors({});
-    setSubmitted(false);
   }
 
   return (
@@ -50,12 +59,6 @@ export default function SupportForm() {
       <p className="hint">
         Fields marked <span className="required">*</span> are required.
       </p>
-
-      {submitted && (
-        <p className="success" role="status">
-          Ticket submitted. We'll reply by email.
-        </p>
-      )}
 
       <div className="row">
         <FormField id="title" label="Title" required error={errors.title}>
@@ -68,7 +71,12 @@ export default function SupportForm() {
           />
         </FormField>
 
-        <FormField id="category" label="Category" required error={errors.category}>
+        <FormField
+          id="category"
+          label="Category"
+          required
+          error={errors.category}
+        >
           <select
             id="category"
             name="category"
@@ -76,15 +84,24 @@ export default function SupportForm() {
             onChange={handleChange}
             aria-invalid={!!errors.category}
           >
-            <option value="" disabled>Select a category</option>
+            <option value="" disabled>
+              Select a category
+            </option>
             {CATEGORIES.map((c) => (
-              <option key={c} value={c}>{c}</option>
+              <option key={c} value={c}>
+                {c}
+              </option>
             ))}
           </select>
         </FormField>
       </div>
 
-      <FormField id="description" label="Description" required error={errors.description}>
+      <FormField
+        id="description"
+        label="Description"
+        required
+        error={errors.description}
+      >
         <textarea
           id="description"
           name="description"
@@ -95,9 +112,9 @@ export default function SupportForm() {
         />
       </FormField>
 
-      {/* <FormField label="Attachments (optional)">
+      <FormField label="Attachments (optional)">
         <FileDropzone files={files} onChange={setFiles} />
-      </FormField> */}
+      </FormField>
 
       <TipsBox />
 

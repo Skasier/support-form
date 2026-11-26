@@ -3,8 +3,6 @@ import { useState, useRef } from "react";
 const ALLOWED_TYPES = ["image/png", "image/jpeg", "application/pdf"];
 const MAX_SIZE = 50 * 1024 * 1024; // 50 MB
 
-// Props: files (array), onChange(newFilesArray)
-// The parent owns the files; this component owns the drag state and file errors.
 export default function FileDropzone({ files, onChange }) {
   const [dragging, setDragging] = useState(false);
   const [error, setError] = useState("");
@@ -14,8 +12,10 @@ export default function FileDropzone({ files, onChange }) {
     const valid = [];
     const problems = [];
     Array.from(fileList).forEach((file) => {
-      if (!ALLOWED_TYPES.includes(file.type)) problems.push(`${file.name} is not a PNG, JPG or PDF.`);
-      else if (file.size > MAX_SIZE) problems.push(`${file.name} is over 50 MB.`);
+      if (!ALLOWED_TYPES.includes(file.type))
+        problems.push(`${file.name} is not a PNG, JPG or PDF.`);
+      else if (file.size > MAX_SIZE)
+        problems.push(`${file.name} is over 50 MB.`);
       else valid.push(file);
     });
     setError(problems.join(" "));
@@ -36,12 +36,19 @@ export default function FileDropzone({ files, onChange }) {
     <>
       <div
         className={`dropzone ${dragging ? "dropzone--active" : ""}`}
-        onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
+        onDragOver={(e) => {
+          e.preventDefault();
+          setDragging(true);
+        }}
         onDragLeave={() => setDragging(false)}
         onDrop={handleDrop}
       >
         Drag files here or{" "}
-        <button type="button" className="link" onClick={() => fileInput.current.click()}>
+        <button
+          type="button"
+          className="link"
+          onClick={() => fileInput.current.click()}
+        >
           browse
         </button>
         <input
@@ -50,7 +57,10 @@ export default function FileDropzone({ files, onChange }) {
           multiple
           accept=".png,.jpg,.jpeg,.pdf"
           hidden
-          onChange={(e) => { addFiles(e.target.files); e.target.value = ""; }}
+          onChange={(e) => {
+            addFiles(e.target.files);
+            e.target.value = "";
+          }}
         />
       </div>
       <p className="hint">PNG, JPG or PDF, up to 50 MB each</p>
@@ -61,7 +71,11 @@ export default function FileDropzone({ files, onChange }) {
           {files.map((file, i) => (
             <li key={`${file.name}-${i}`}>
               {file.name}
-              <button type="button" className="link" onClick={() => removeFile(i)}>
+              <button
+                type="button"
+                className="link"
+                onClick={() => removeFile(i)}
+              >
                 Remove
               </button>
             </li>

@@ -2,6 +2,9 @@
 .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
 
 .tab {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
   padding: 10px 22px;
   background: var(--panel);
   color: var(--text);
@@ -12,6 +15,7 @@
   cursor: pointer;
 }
 .tab--active { background: var(--blue); border-color: var(--blue); }
+
 
 .badge {
   display: inline-grid;

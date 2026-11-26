@@ -1,18 +1,20 @@
+import { NavLink } from "react-router-dom";
 import "./TabBar.css";
 
-export default function TabBar({ tabs, activeIndex, onChange, ticketCount }) {
+// navigation tabs for the support request sections
+export default function TabBar({ tabs, ticketCount }) {
   return (
     <nav className="tabs" aria-label="Support sections">
-      {tabs.map((label, i) => (
-        <button
-          key={label}
-          type="button"
-          className={`tab ${activeIndex === i ? "tab--active" : ""}`}
-          onClick={() => onChange(i)}
+      {tabs.map((tab) => (
+        <NavLink
+          key={tab.path}
+          to={tab.path}
+          end={tab.path === "/"} 
+          className={({ isActive }) => `tab ${isActive ? "tab--active" : ""}`}
         >
-          {label}
-          {label === "Manage Tickets" && <span className="badge">{ticketCount}</span>}
-        </button>
+          {tab.label}
+          {tab.label === "Manage Tickets" && <span className="badge">{ticketCount}</span>}
+        </NavLink>
       ))}
     </nav>
   );
