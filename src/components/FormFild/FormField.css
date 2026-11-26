@@ -7,7 +7,7 @@
 .field textarea {
   width: 100%;
   padding: 14px 16px;
-  background: var(--input);
+  background: rgba(23, 23, 33, 1);
   color: var(--text);
   border: 1px solid transparent;
   border-radius: 4px;

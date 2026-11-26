@@ -1,0 +1,49 @@
+/* TicketTable: the list of tickets */
+.table-count {
+  margin: 28px 0 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #33344a;
+  font-size: 12px;
+  color: var(--muted);
+}
+.table-wrap { overflow-x: auto; }
+
+.tickets { width: 100%; border-collapse: collapse; font-size: 13px; }
+.tickets th {
+  padding: 8px 10px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.tickets tbody tr:nth-child(odd) { background: var(--input); }
+.tickets .unread .title { font-weight: 700; }
+
+/* Red dot = support replied since you last opened the ticket */
+.dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--red);
+}
+.dot--hidden { background: transparent; } /* keeps rows lined up */
+
+/* Link that looks like a small button */
+.btn--small {
+  display: inline-block;
+  padding: 8px 18px;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+/* Visually hidden, but read by screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}

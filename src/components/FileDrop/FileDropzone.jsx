@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import './FileDropzone.css';
 
 const ALLOWED_TYPES = ["image/png", "image/jpeg", "application/pdf"];
 const MAX_SIZE = 50 * 1024 * 1024; // 50 MB

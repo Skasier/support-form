@@ -1,0 +1,11 @@
+/* TicketFilters: three fields in a row */
+.filters {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.filters .field { margin-top: 0; }
+
+@media (max-width: 700px) {
+  .filters { grid-template-columns: 1fr; }
+}

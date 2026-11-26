@@ -112,9 +112,11 @@ export default function SupportForm() {
         />
       </FormField>
 
-      <FormField label="Attachments (optional)">
-        <FileDropzone files={files} onChange={setFiles} />
-      </FormField>
+      <div className="attachments-field">
+        <FormField label="Attachments (optional)">
+          <FileDropzone files={files} onChange={setFiles} />
+        </FormField>
+      </div>
 
       <TipsBox />
 

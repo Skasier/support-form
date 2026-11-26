@@ -1,0 +1,15 @@
+.bubble-row { display: flex; }
+.bubble-row--mine { justify-content: flex-end; }
+
+.bubble {
+  max-width: 70%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 13px;
+}
+.bubble--mine { background: var(--blue); }
+.bubble--support { background: var(--input); }
+
+.bubble p { margin: 0; }
+.bubble-meta { margin-bottom: 4px !important; font-size: 10px; opacity: 0.8; }
+.bubble-text { line-height: 1.4; }

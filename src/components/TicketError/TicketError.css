@@ -1,0 +1,70 @@
+.confirm-card {
+  margin-top: 22px;
+  padding: 22px;
+  background: var(--input);
+  border-radius: 4px;
+}
+
+.confirm-head { display: flex; align-items: flex-start; gap: 14px; }
+.confirm-head h2 { margin: 0; font-size: 20px; }
+.confirm-head p { margin: 4px 0 0; font-size: 13px; color: var(--muted); }
+.confirm-head .confirm-note {
+  margin: 14px 0 0 auto;
+  color: var(--blue);
+  font-size: 13px;
+}
+
+.tick {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-top: 3px;
+  border-radius: 50%;
+  background: #F0495D;
+  color: var(--input);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Details table */
+.details {
+  margin: 22px 0 0;
+  padding: 6px 12px;
+  background: #22222e;
+  border-radius: 4px;
+}
+.details-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 11px 0;
+  border-bottom: 1px solid #33344a;
+  font-size: 13px;
+}
+.details-row:last-child { border-bottom: 0; }
+.details dt { color: var(--muted); }
+.details dd { margin: 0; font-weight: 600; text-align: right; }
+.details dd.status { color: #e8a43a; }
+
+/* Info bar */
+.info-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 10px 14px;
+  background: #3A1F26;
+  border-left: 3px solid var(--red);
+  border-radius: 2px;
+  font-size: 12px;
+}
+.urgent { color: var(--red); }
+
+/* Buttons (reuses .actions and .btn from the main stylesheet) */
+.confirm-card .actions { margin-top: 90px; }
+.btn--outline {
+  background: var(--panel);
+  border: 1px solid var(--blue);
+}

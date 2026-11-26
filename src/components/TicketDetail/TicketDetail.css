@@ -1,0 +1,86 @@
+/* TicketDetail: header, chat area and message box */
+.detail-head { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.detail-head h1 { margin: 0; font-size: 18px; }
+
+.back {
+  width: 36px;
+  height: 30px;
+  background: var(--input);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn--success {
+  margin-left: auto;
+  padding: 8px 16px;
+  background: var(--green);
+  color: #04281a;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Category / dates / agent avatars */
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 14px 0 0 48px; }
+.chip {
+  padding: 4px 12px;
+  background: var(--input);
+  border-radius: 12px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 600;
+}
+.avatar--0 { background: #8a5cf6; }
+.avatar--1 { background: #f07a2b; }
+
+/* Messages */
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-height: 460px;
+  margin-top: 16px;
+  padding: 18px 4px;
+  overflow-y: auto;
+  border-top: 1px solid #33344a;
+}
+.system-note { margin: 0; text-align: center; font-size: 11px; color: var(--muted); }
+
+/* Message box */
+.composer {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid #33344a;
+}
+.composer input {
+  flex: 1;
+  height: 40px;
+  padding: 0 12px;
+  background: var(--input);
+  color: var(--text);
+  border: 0;
+  border-radius: 4px;
+  font: inherit;
+  font-size: 13px;
+}
+.icon-btn {
+  width: 42px;
+  background: var(--input);
+  color: var(--text);
+  border: 1px solid var(--blue);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.composer .btn { padding: 0 24px; }
+.composer :disabled { opacity: 0.5; cursor: not-allowed; }
