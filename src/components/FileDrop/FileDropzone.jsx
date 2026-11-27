@@ -44,14 +44,17 @@ export default function FileDropzone({ files, onChange }) {
         onDragLeave={() => setDragging(false)}
         onDrop={handleDrop}
       >
-        Drag files here or{" "}
-        <button
-          type="button"
-          className="link"
-          onClick={() => fileInput.current.click()}
-        >
-          browse
-        </button>
+        <div className="dropzone__prompt">
+          Drag files here or{" "}
+          <button
+            type="button"
+            className="link"
+            onClick={() => fileInput.current.click()}
+          >
+            browse
+          </button>
+        </div>
+        {error && <p className="error">{error}</p>}
         <input
           ref={fileInput}
           type="file"
@@ -65,7 +68,6 @@ export default function FileDropzone({ files, onChange }) {
         />
       </div>
       <p className="hint">PNG, JPG or PDF, up to 50 MB each</p>
-      {error && <p className="error">{error}</p>}
 
       {files.length > 0 && (
         <ul className="file-list">

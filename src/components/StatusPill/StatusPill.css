@@ -1,0 +1,12 @@
+/* StatusPill: coloured label for a ticket status */
+.pill {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.pill--waiting { background: var(--red); color: #fff; }
+.pill--progress { background: var(--amber); color: #2b1d00; }
+.pill--resolved { background: var(--green); color: #04281a; }

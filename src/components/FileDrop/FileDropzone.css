@@ -1,14 +1,27 @@
 
 .dropzone {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 6px;
   height: 120px;
   border: 1.5px dashed var(--muted);
   border-radius: 4px;
   color: var(--muted);
   font-size: 14px;
+}
+
+.dropzone__prompt {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dropzone .error {
+  margin: 0;
+  padding: 0 12px;
+  text-align: center;
 }
 
 .dropzone--active {

@@ -11,15 +11,15 @@ import "./SupportRequest.css";
 const TABS = [
   { label: "Make a support request", path: "/" },
   { label: "Manage Tickets", path: "/tickets" },
-  { label: "Help Articles", path: "/articles" },
-  { label: "Support Bot", path: "/bot" },
+  { label: "Goober time", path: "/articles" },
+  { label: "Goofy Goober", path: "/bot" },
 ];
 
 function Placeholder({ title }) {
   return (
     <section className="panel">
       <h1>{title}</h1>
-      <p className="hint">This section isn't built yet.</p>
+      <p className="hint">Unlucky try again later</p>
     </section>
   );
 }
@@ -70,8 +70,8 @@ export default function SupportRequest() {
         <Route path="/submitted" element={<TicketConfirmation />} />
         <Route path="/tickets" element={<TicketList tickets={tickets} />} />
         <Route path="/tickets/:id" element={<TicketDetail tickets={tickets} onUpdate={updateTicket} />} />
-        <Route path="/articles" element={<Placeholder title="Help Articles" />} />
-        <Route path="/bot" element={<Placeholder title="Support Bot" />} />
+        <Route path="/articles" element={<Placeholder title="Goober time" />} />
+        <Route path="/bot" element={<Placeholder title="Goofy Goober" />} />
       </Routes>
     </div>
   );
